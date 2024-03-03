@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title>GAS HTML-service page with directly embeded JavaScript</title>
+  </head>
+  <body>
+    <script type="module">
+      import { wrapGASFunctions } from "https://unpkg.com/ts-gasrun";
+
+      const gasrun = wrapGASFunctions();
+      (async () => {
+        const { result } = await gasrun.concat({
+          a: await gasrun.hello("world"),
+          b: 123,
+        });
+        document.body.textContent = result;
+      })();
+    </script>
+  </body>
+</html>

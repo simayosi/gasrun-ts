@@ -1,0 +1,49 @@
+{
+  "name": "ts-gasrun",
+  "version": "0.0.1",
+  "author": "SHIMAYOSHI, Takao",
+  "description": "Minimalist wrapper for google.scripts.run with native TypeScript support",
+  "keywords": [
+    "google apps script",
+    "gas",
+    "typescript"
+  ],
+  "homepage": "https://github.com/simayosi/ts-gasrun#readme",
+  "bugs": "https://github.com/simayosi/ts-gasrun/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simayosi/ts-gasrun.git"
+  },
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "lint": "eslint src/ tests/ samples/ && prettier --check src/ tests/ samples/",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+  },
+  "type": "module",
+  "exports": {
+    "types": "./dist/gasrun.d.ts",
+    "require": "./dist/gasrun.umd.cjs",
+    "default": "./dist/gasrun.module.mjs"
+  },
+  "main": "dist/gasrun.umd.cjs",
+  "module": "dist/gasrun.module.mjs",
+  "types": "dist/gasrun.d.ts",
+  "unpkg": "dist/gasrun.min.mjs",
+  "devDependencies": {
+    "@babel/preset-typescript": "^7.23.3",
+    "@typescript-eslint/eslint-plugin": "^7.0.2",
+    "@typescript-eslint/parser": "^7.0.2",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-jest": "^27.9.0",
+    "jest": "^29.7.0",
+    "prettier": "^3.2.5",
+    "rollup-plugin-dts": "^6.1.0",
+    "rollup-plugin-esbuild": "^6.1.1",
+    "typescript": "^5.3.3"
+  }
+}
