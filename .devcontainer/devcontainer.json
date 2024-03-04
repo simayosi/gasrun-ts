@@ -3,7 +3,11 @@
   "image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bookworm",
   "customizations": {
     "vscode": {
-      "extensions": ["esbenp.prettier-vscode", "firsttris.vscode-jest-runner"],
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "firsttris.vscode-jest-runner",
+        "github.vscode-github-actions"
+      ],
       "settings": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.formatOnSave": true,
