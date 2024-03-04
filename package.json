@@ -1,6 +1,6 @@
 {
   "name": "ts-gasrun",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "author": "SHIMAYOSHI, Takao",
   "description": "Minimalist wrapper for google.scripts.run with native TypeScript support",
   "keywords": [
