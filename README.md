@@ -119,6 +119,28 @@ like below in a GAS HTML-service page.
 </script>
 ```
 
+### Mocking
+
+You can mock GAS functions for local development.
+Use `mockGASFunctions` with mock implementations of GAS functions,
+instead of `wrapGASFunctions`.
+
+```typescript
+import { wrapGASFunctions, mockGASFunctions } from "ts-gasrun";
+import * as GASFuncs from "./gas-functions";
+
+const gasrun =
+  process.env.NODE_ENV === "production"
+    ? wrapGASFunctions(GASFuncs)
+    : mockGASFunctions({
+        hello: (str: string) => `Hello, ${str}!`,
+        concat: ({ a, b }) => ({ result: `${a}${b}` }),
+        throwError: () => {
+          throw new Error("Error!");
+        },
+      });
+```
+
 ## Acknowledgements
 
 This package is inspired by [gas-client](https://github.com/enuchi/gas-client).

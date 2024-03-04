@@ -1,8 +1,17 @@
 // Frontend code bundled into GAS HTML-service pages
-import { wrapGASFunctions } from "ts-gasrun";
+import { wrapGASFunctions, mockGASFunctions } from "ts-gasrun";
 import * as GASFuncs from "./gas-functions";
 
-const gasrun = wrapGASFunctions(GASFuncs);
+const gasrun =
+  process.env.NODE_ENV === "production"
+    ? wrapGASFunctions(GASFuncs)
+    : mockGASFunctions({
+        hello: (str: string) => `Hello, ${str}!`,
+        concat: ({ a, b }) => ({ result: `${a}${b}` }),
+        throwError: () => {
+          throw new Error("Error!");
+        },
+      });
 
 export function useThenCatch() {
   // hello: (str: string) => Promise<string>
