@@ -1,5 +1,5 @@
 import { jest, describe, it, expect } from "@jest/globals";
-import { wrapGASFunctions, mockGASFunctions } from "../";
+import { wrapGASFunctions, mockGASFunctions } from "../src/";
 import * as GAS from "./gas-functions";
 import { funcA } from "./gas-functions";
 

@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-type AnyFunc = (...args: any[]) => any;
+type AnyFunc = (...args: any[]) => unknown;
 
 type FuncRecord = Record<string, AnyFunc>;
 type GASFunctions<FO extends FuncRecord> = {
@@ -29,7 +29,7 @@ export function mockGASFunctions<FR extends FuncRecord>(funcRecord: FR) {
   return Object.keys(funcRecord).reduce((acc, key) => {
     return {
       ...acc,
-      [key]: async (...args: unknown[]) => funcRecord[key](...args),
+      [key]: async (...args: unknown[]) => await funcRecord[key](...args),
     };
   }, {} as GASFunctions<FR>);
 }

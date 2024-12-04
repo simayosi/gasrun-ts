@@ -15,9 +15,12 @@ const gasrun =
 
 export function useThenCatch() {
   // hello: (str: string) => Promise<string>
-  gasrun.hello("world").then((result) => {
-    console.log(result);
-  });
+  gasrun.hello("world").then(
+    (result) => {
+      console.log(result);
+    },
+    () => {},
+  );
 
   gasrun.throwError().catch((error) => {
     console.error(error);

@@ -5,7 +5,7 @@ export function hello(str: string) {
 }
 
 export function concat(prop: { a: string; b: unknown }) {
-  return { result: prop.a + prop.b };
+  return { result: prop.a + prop.b?.toString() };
 }
 
 export function throwError() {
