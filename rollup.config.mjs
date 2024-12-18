@@ -9,18 +9,10 @@ export default [
   {
     ...commonConfigs,
     output: {
-      file: "./dist/gasrun.module.mjs",
+      file: "./dist/gasrun.js",
       format: "es",
     },
     plugins: [esbuild()],
-  },
-  {
-    ...commonConfigs,
-    output: {
-      file: "./dist/gasrun.d.ts",
-      format: "es",
-    },
-    plugins: [dts()],
   },
   {
     ...commonConfigs,
@@ -35,6 +27,20 @@ export default [
         target: "node14",
       }),
     ],
+  },
+  {
+    ...commonConfigs,
+    output: [
+      {
+        file: "./dist/gasrun.d.ts",
+        format: "es",
+      },
+      {
+        file: "./dist/gasrun.d.cts",
+        format: "cjs",
+      },
+    ],
+    plugins: [dts()],
   },
   {
     ...commonConfigs,

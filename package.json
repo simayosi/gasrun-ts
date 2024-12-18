@@ -26,12 +26,19 @@
   },
   "type": "module",
   "exports": {
-    "types": "./dist/gasrun.d.ts",
-    "require": "./dist/gasrun.umd.cjs",
-    "default": "./dist/gasrun.module.mjs"
+    "module": "./dist/gasrun.js",
+    "browser": "./dist/gasrun.min.mjs",
+    "import": {
+      "types": "./dist/gasrun.d.ts",
+      "default": "./dist/gasrun.js"
+    },
+    "require": {
+      "types": "./dist/gasrun.d.cts",
+      "default": "./dist/gasrun.cjs"
+    }
   },
   "main": "dist/gasrun.umd.cjs",
-  "module": "dist/gasrun.module.mjs",
+  "module": "dist/gasrun.js",
   "types": "dist/gasrun.d.ts",
   "unpkg": "dist/gasrun.min.mjs",
   "devDependencies": {
